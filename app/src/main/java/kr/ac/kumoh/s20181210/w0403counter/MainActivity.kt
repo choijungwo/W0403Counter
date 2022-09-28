@@ -1,7 +1,6 @@
 package kr.ac.kumoh.s20181210.w0403counter
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -56,7 +55,7 @@ fun Counter() {
         Text(text = "$count",
             fontSize = 70.sp,
         )
-        Row() {
+        Row {
             Button(modifier = Modifier
                 .weight(1f),
                 onClick = {
