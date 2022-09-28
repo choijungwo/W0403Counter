@@ -9,9 +9,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,8 +46,7 @@ fun MyApp(content: @Composable () -> Unit) {
 
 @Composable
 fun Counter() {
-    //var count by remember { mutableStateOf(0) }
-    val (count, setCount) = remember { mutableStateOf(0) }
+    var count by remember { mutableStateOf(0) }
 
     Column(modifier = Modifier
         //.fillMaxSize()
@@ -63,7 +60,7 @@ fun Counter() {
             Button(modifier = Modifier
                 .weight(1f),
                 onClick = {
-                    setCount(count + 1)
+                    count++
                 } ) {
                 Text(text = "증가")
             }
@@ -72,7 +69,7 @@ fun Counter() {
                 .weight(1f),
                 onClick = {
                     if (count > 0)
-                        setCount(count - 1)
+                        count--
                 } ) {
                 Text(text = "감소")
             }
